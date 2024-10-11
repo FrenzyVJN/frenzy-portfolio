@@ -5,27 +5,27 @@ import { Shield, Terminal, Eye, Cpu, Network, Lock } from "lucide-react"
 export default function Projects() {
   const projects = [
     {
-      title: "Operation Firewall Breach",
-      description: "Developed advanced techniques to bypass next-gen web application firewalls.",
-      tags: ["Web Security", "Penetration Testing"],
+      title: "NullPointerBot",
+      description: "Independently designed and implemented a Python-based Discord bot to streamline CTF event management, incorporating key features such as team management, dynamic question handling, score tracking, and AI-driven interactions (RAG) for concise conversation summaries.",
+      tags: ["Python","AstraDB","Discord Bot", "CTF"],
       icon: <Shield className="h-6 w-6 mb-2" />
     },
     {
-      title: "Project Sentinel",
-      description: "Engineered a machine learning-powered Network Intrusion Detection System (NIDS) to identify anomalous behavior.",
-      tags: ["Network Security", "Machine Learning"],
+      title: "AI-Based Context-Aware Firewall",
+      description: "Developed a high-performance AI-based firewall in Python for the Smart India Hackathon 2024, utilizing machine learning for advanced traffic analysis. Implemented NLP for user-friendly policy creation and contextual awareness to enhance threat detection",
+      tags: ["NextJS","Python","TailwindCSS","Network Security", "Machine Learning"],
       icon: <Network className="h-6 w-6 mb-2" />
     },
     {
-      title: "Operation Binary Autopsy",
-      description: "Conducted in-depth analysis of sophisticated malware samples using advanced reverse engineering techniques.",
-      tags: ["Reverse Engineering", "Malware Analysis"],
+      title: "Cache Simulator",
+      description: "Developed a Svelte-based simulator for L1, L2, and victim cache systems, featuring random/manual address input and visualizations. Deployed on Vercel for educational use, with plans for future enhancements including configurable cache parameters and advanced memory hierarchy simulations.",
+      tags: ["Svelte", "TailwindCSS", "Computer Architecture", "Web Development"],
       icon: <Cpu className="h-6 w-6 mb-2" />
     },
     {
-      title: "Project Digital Shadow",
-      description: "Developed an OSINT framework to automate the collection and analysis of threat intelligence from open sources.",
-      tags: ["OSINT", "Threat Intelligence"],
+      title: "HackYourLMS",
+      description: "An immersive cybersecurity simulation platform that offers beginner-friendly access to concepts, including the OWASP Top 10 attacks. The platform features interactive scenarios for learning and practicing common attacks like IDOR, SQLi, and DDoS, along with a simulated online environment for hands-on experience.",
+      tags: ["Svelte","TailwindCSS","Cybersecurity", "Web Development", "OWASP"],
       icon: <Eye className="h-6 w-6 mb-2" />
     }
   ]
@@ -39,7 +39,7 @@ export default function Projects() {
         {projects.map((project, index) => (
           <Card key={index} className="bg-black border-green-500">
             <CardHeader>
-              <CardTitle className="flex items-center text-green-400">
+              <CardTitle className="flex items-center text-green-400 gap-3">
                 {project.icon}
                 {project.title}
               </CardTitle>

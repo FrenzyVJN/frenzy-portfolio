@@ -5,26 +5,26 @@ import { Lock, Eye, Shield } from "lucide-react"
 export default function Blog() {
   const posts = [
     {
-      title: "Securing the Digital Frontier: The HTTPS Protocol",
-      description: "An in-depth exploration of HTTPS and its critical role in cybersecurity.",
+      title: "Enhance Your Mac's Cybersecurity Capabilities: A Complete Guide to CTFs and Pentesting",
+      description: "Unlock your Mac's potential for cybersecurity challenges with this comprehensive guide. Learn how to set up essential tools, configure virtual machines, and utilize your GPU for powerful password cracking. Whether you're new to CTFs or an experienced pentester, discover how to make the most of your Macbook Pro M2 Pro for your cybersecurity journey.",
       date: "2023-09-15",
-      slug: "importance-of-https",
+      slug: "mac-cybersecurity-ctfs-pentesting-guide",
       icon: <Lock className="h-6 w-6 mb-2" />
     },
-    {
-      title: "Navigating the OWASP Top 10: A Hacker's Perspective",
-      description: "Analyzing the most critical web application security risks and how to exploit... I mean, prevent them.",
-      date: "2023-08-22",
-      slug: "owasp-top-10",
-      icon: <Shield className="h-6 w-6 mb-2" />
-    },
-    {
-      title: "The Art of Ethical Hacking: Tools of the Trade",
-      description: "A comprehensive guide to the essential tools every ethical hacker should master.",
-      date: "2023-07-30",
-      slug: "ethical-hacking-tools",
-      icon: <Eye className="h-6 w-6 mb-2" />
-    }
+    // {
+    //   title: "Navigating the OWASP Top 10: A Hacker's Perspective",
+    //   description: "Analyzing the most critical web application security risks and how to exploit... I mean, prevent them.",
+    //   date: "2023-08-22",
+    //   slug: "owasp-top-10",
+    //   icon: <Shield className="h-6 w-6 mb-2" />
+    // },
+    // {
+    //   title: "The Art of Ethical Hacking: Tools of the Trade",
+    //   description: "A comprehensive guide to the essential tools every ethical hacker should master.",
+    //   date: "2023-07-30",
+    //   slug: "ethical-hacking-tools",
+    //   icon: <Eye className="h-6 w-6 mb-2" />
+    // }
   ]
 
   return (

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Shield, Terminal, BookOpen, Code, Fingerprint } from "lucide-react"
+import { Shield, Terminal, BookOpen, Code, Fingerprint, Crown } from "lucide-react"
 
 export function MainNav() {
   return (
@@ -35,12 +35,13 @@ export function MainNav() {
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-4">
-          <nav className="flex items-center space-x-1">
+          <nav className="flex items-center space-x-1 gap-3">
             <Link href="https://github.com/FrenzyVJN" className="text-green-500 hover:text-green-400">
               <Shield className="h-5 w-5" />
               <span className="sr-only">GitHub</span>
             </Link>
             <Link href="https://www.chess.com/member/vijayan1" className="text-green-500 hover:text-green-400">
+              <Crown className="h-5 w-5"/>
               <span className="sr-only">Chess</span>
             </Link>
           </nav>
