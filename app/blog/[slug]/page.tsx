@@ -1,24 +1,39 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import ReactMarkdown from 'react-markdown'; // Import ReactMarkdown
+import { useEffect, useState } from 'react';
 
-export async function generateStaticParams() {
+interface FrontMatter {
+  title: string;
+  date?: string; // Optional if you want to include a date
+}
+
+interface Params {
+  slug: string;
+}
+
+export async function generateStaticParams(): Promise<Params[]> {
   const files = fs.readdirSync(path.join('app/blog'));
   return files.map(filename => ({
     slug: filename.replace('.md', ''),
   }));
 }
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const markdownWithMeta = fs.readFileSync(
-    path.join('app/blog', `${params.slug}.md`),
-    'utf-8'
-  );
-  const { data: frontMatter, content } = matter(markdownWithMeta);
+interface BlogPostProps {
+  params: Params;
+}
+
+const BlogPost: React.FC<BlogPostProps> = async ({ params }) => {
+  const filePath = path.join('app/blog', `${params.slug}.md`);
+
+  // Error handling for file read
+  if (!fs.existsSync(filePath)) {
+    return <div>Post not found</div>;
+  }
+
+  const markdownWithMeta = fs.readFileSync(filePath, 'utf-8');
+  const { data: frontMatter, content } = matter(markdownWithMeta) as unknown as { data: FrontMatter; content: string };
 
   return (
     <div className="container mx-auto px-4 py-8 bg-black text-green-500">
@@ -26,31 +41,10 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       {/* Uncomment to show publication date */}
       {/* <p className="text-green-400 mb-8">Published on: {frontMatter.date}</p> */}
       <div className="prose lg:prose-xl dark:prose-invert prose-green max-w-none">
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          components={{
-            code({ node, inline, className, children, ...props }) {
-              const match = /language-(\w+)/.exec(className || '');
-              return !inline && match ? (
-                <SyntaxHighlighter
-                  style={atomDark}
-                  language={match[1]}
-                  PreTag="div"
-                  {...props}
-                >
-                  {String(children).replace(/\n$/, '')}
-                </SyntaxHighlighter>
-              ) : (
-                <code className={className} {...props}>
-                  {children}
-                </code>
-              );
-            },
-          }}
-        >
-          {content}
-        </ReactMarkdown>
+        <ReactMarkdown>{content}</ReactMarkdown>
       </div>
     </div>
   );
-}
+};
+
+export default BlogPost;
